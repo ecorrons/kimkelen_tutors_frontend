@@ -12,11 +12,10 @@ gem 'bootstrap-sass',             '~> 3.3.0'
 gem 'autoprefixer-rails',         '~> 4.0.0'
 gem 'bootstrap-generators',       '~> 3.2.0'
 gem 'uglifier',                   '>= 1.3.0'
-gem 'turbolinks',                 '~> 2.5.1'
+
 gem 'rails-assets-jquery',        '~> 2.1.1'
 gem 'rails-assets-jquery-ujs',    '~> 1.0.1'
 gem 'bootstrap-material-design',  '~> 0.1.7'
-gem 'js-initializers',            '~> 0.0.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -32,7 +31,7 @@ group :development do
 end
 
 # API connect
-gem 'faraday', '~> 0.9.1'
+gem 'faraday'
 
 # Rails custom configurations
 gem 'rails_config',                    '~> 0.4.2'
