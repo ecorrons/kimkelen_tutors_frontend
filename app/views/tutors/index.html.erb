@@ -2,98 +2,24 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron tutor-view">
-		    <h2> <%= @person.firstname %>, <%= @person.lastname%></h2>
-				<div class="row">
-					<div class="col-md-3">
-						<strong><%= @person.identification_type %></strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.identification_number %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<i class="mdi-hardware-phone-android"></i>
-						<strong>Teléfono:</strong>
-					</div>
-					<div class="col-md-6">
-						<%= @person.phone %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<i class="mdi-content-mail"></i>
-						<strong>Email:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.email %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<i class="mdi-maps-pin-drop"></i>
-						<strong>Calle:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.address['street'] %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<strong>N°:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.address['number'] %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<strong>Piso:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.address['floor'] %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<strong>Depto:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.address['flat'] %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<strong>Ciudad:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.address['city']['name'] %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<strong>Provincia:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.address['city']['state']['name'] %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<strong>País:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.address['city']['state']['country']['name'] %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<strong>Estudiantes a cargo:</strong> 
-					</div>
-					<div class="col-md-6">
-						<%= @person.students %>
-					</div>
-				</div>
+        <div class="page-header">
+          <h2><strong><%= @person.firstname%>, <%= @person.lastname %></strong><small> (<%= @tutor.tutor_type['name']%>)</small></h2>
+        </div>
+
+
+        <ul class="list-group">
+          <li class="list-group-item well well-sm"><h4><strong><%= @person.identification_type %> <%= @person.identification_number %></strong></h4></li>
+          <li class="list-group-item well well-sm"><i class="mdi-hardware-phone-android"></i> <strong>Teléfono: </strong><%= render_field @person.phone %></li>
+          <li class="list-group-item well well-sm"><i class="mdi-content-mail"></i> <strong>Correo electrónico:</strong> <%= render_field @person.email %></li>
+          <li class="list-group-item well well-sm"><i class="mdi-maps-pin-drop"></i><strong>Dirección:</strong> <%= render_address @person.address %></li>
+
+
+        </ul>
+        <div class="well well-lg"><strong>Estudiantes a cargo:</strong>
+          <%- @tutor['students'].each do |student| %>
+            <span class="label label-warning child"><%= link_to student['name'], student['_links']  %></span>
+          <% end %>
+        </div>
 			</div>
 		</div>
 	</div>

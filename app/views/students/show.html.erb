@@ -1,0 +1,82 @@
+<p style="margin: 35px;"></p>
+
+
+<div class="row">
+  <div class="col-md-7">
+
+      <div class="jumbotron" style="min-height: 420px">
+        <div class="page-header">
+          <h3><strong><%= @student.person['firstname'] %>, <%= @student.person['lastname'] %></strong></h3>
+        </div>
+
+        <ul class="list-group">
+          <li class="list-group-item well well-sm"><strong><%= @student['person']['identification_type'] %> <%= @student['person']['identification_number'] %></strong></li>
+          <li class="list-group-item well well-sm"><i class="mdi-hardware-phone-android"></i> <strong>Teléfono: </strong><%= render_field @student['person']['phone'] %></li>
+          <li class="list-group-item well well-sm"><i class="mdi-content-mail"></i> <strong>Correo electrónico:</strong> <%= render_field @student['person']['email'] %></li>
+          <li class="list-group-item well well-sm"><i class="mdi-maps-pin-drop"></i><strong>Dirección:</strong> <%= render_address @student['person']['address']%></li>
+        </ul>
+      </div>
+  </div>
+
+  <div class="col-md-5 side-list">
+    <div class="list-group">
+
+      <div class="panel-default">
+        <div class="panel-body home-boxes1">
+          <div class="list-group-item clickable">
+            <div class="row-action-primary">
+              <i class="mdi-action-grade"></i>
+            </div>
+            <div class="row-content">
+              <div class="action-secondary"><i class="mdi-material-info"></i></div>
+
+              <h3><strong><%= link_to('Calificaciones', marks_path(id: @student['id'])) %></i></strong></h3>
+              <i><p class="list-group-item-text">Consulte el historial académico de calificaciones.</p></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-default">
+        <div class="panel-body home-boxes2">
+          <div class="list-group-item clickable">
+            <div class="row-action-primary">
+              <i class="mdi-action-event"></i>
+            </div>
+            <div class="row-content">
+              <div class="action-secondary"><i class="mdi-material-info"></i></div>
+
+              <h3><strong><%= link_to('Inasistencias', absences_path(id: @student['id'])) %></strong></h3>
+              <i><p class="list-group-item-text">Verifique el registro de inasistencias y retrasos a clases.</p></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-default">
+        <div class="panel-body home-boxes3">
+          <div class="list-group-item clickable">
+            <div class="row-action-primary">
+              <i class="mdi-notification-sim-card-alert"></i>
+            </div>
+            <div class="row-content">
+              <div class="action-secondary"><i class="mdi-material-info"></i></div>
+
+              <h3><strong><%= link_to('Sanciones disciplinarias', disciplinary_sanctions_path(id: @student['id'])) %></strong></h3>
+              <i><p class="list-group-item-text">Chequee las sanciones disciplinarias y apercibimientos imputados.</p></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= link_to(chevron_icon + 'Volver', root_path, class: 'btn btn-default btn-xs')%>
+
+<p style="margin: 45px;"></p>
+

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :tutors, only: [:index, :show]
 
-  resources :students, only: [:index, :show]
+  resources :students, only: [:show]
 
   resources :marks, only: [:index]
 
