@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def set_tutor
-    res = Api::call "/tutors/2140"
+    res = Api::call "/tutors/1801"
     @tutor = OpenStruct.new res['tutor']
   end
 

@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def render_address address
-    street= "Calle #{address['street']} N°#{address['number']}"
+    street= "#{address['street']} N°#{address['number']}"
 
     if !address['floor'].blank?
       floor_flat = " (#{address['floor']} #{address['flat']}), "
