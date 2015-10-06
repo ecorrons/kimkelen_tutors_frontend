@@ -1,26 +1,36 @@
 <div class="col-md-12">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron tutor-view">
+  <div class="row">
+    <div class="tutor-container">
+      <div class="col-md-3 tutor-name">
         <div class="page-header">
-          <h2><strong><%= @person.firstname%>, <%= @person.lastname %></strong><small> (<%= @tutor.tutor_type['name']%>)</small></h2>
+          <h2><strong><%= @person.firstname%>, <%= @person.lastname %></strong> <small> [ <%= @tutor.tutor_type['name']%> ] </small></h2>
+          <p class="identification-type"><strong><%= @person.identification_type %>. <%= @person.identification_number %></strong></p>
         </div>
+      </div>
 
-
-        <ul class="list-group">
-          <li class="list-group-item well well-sm"><h4><strong><%= @person.identification_type %> <%= @person.identification_number %></strong></h4></li>
-          <li class="list-group-item well well-sm"><i class="mdi-hardware-phone-android"></i> <strong>Teléfono: </strong><%= render_field @person.phone %></li>
-          <li class="list-group-item well well-sm"><i class="mdi-content-mail"></i> <strong>Correo electrónico:</strong> <%= render_field @person.email %></li>
-          <li class="list-group-item well well-sm"><i class="mdi-maps-pin-drop"></i><strong>Dirección:</strong> <%= render_address @person.address %></li>
-
-
-        </ul>
-        <div class="well well-lg"><strong>Estudiantes a cargo:</strong>
-          <%- @tutor['students'].each do |student| %>
-            <span class="label label-warning child"><%= link_to student['name'], student['_links']  %></span>
-          <% end %>
+      <div class="col-md-6">
+        <div class="tutor-view">
+          <p><i class="mdi-hardware-phone-android"></i> <strong>Teléfono: </strong><%= render_field @person.phone %></p>
+          <p><i class="mdi-content-mail"></i> <strong>Correo electrónico:</strong> <%= render_field @person.email %></p>
+          <p><i class="mdi-maps-pin-drop"></i><strong>Dirección:</strong> <%= render_address @person.address %></p>
         </div>
-			</div>
-		</div>
+      </div>
+      <legend></legend>
+      <div class="col-md-12 tutor-child">
+        <strong><h4><i class="mdi-social-school"></i>Estudiantes a cargo</h4></strong>
+      </div>
+      <% child1 = @tutor['students'][0] %>
+      <div class="col-md-3 children children1">
+        <i class="mdi-action-account-circle"></i><span><%= link_to child1['name'], child1['_links']  %></span>
+      </div>
+       <% child2 = @tutor['students'][1] %>
+      <div class="col-md-3 children children2">
+        <i class="mdi-action-account-circle"></i><span><%= link_to child2['name'], child2['_links']  %></span>
+      </div>
+      <% child3 = @tutor['students'][2] %>
+      <div class="col-md-3 children children3">
+        <i class="mdi-action-account-circle"></i><span><%= link_to child3['name'], child3['_links']  %></span>
+      </div>
+    </div>
 	</div>
 </div>
