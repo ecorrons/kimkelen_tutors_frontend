@@ -4,7 +4,7 @@
       <div class="col-md-3 tutor-name">
         <div class="page-header">
           <h2><strong><%= @person.firstname%>, <%= @person.lastname %></strong> <small> [ <%= @tutor.tutor_type['name']%> ] </small></h2>
-          <p class="identification-type"><strong><%= @person.identification_type %>. <%= @person.identification_number %></strong></p>
+          <p class="identification-type"><strong><%= @person.identification_type %> <%= @person.identification_number %></strong></p>
         </div>
       </div>
 
@@ -19,18 +19,12 @@
       <div class="col-md-12 tutor-child">
         <strong><h4><i class="mdi-social-school"></i>Estudiantes a cargo</h4></strong>
       </div>
-      <% child1 = @tutor['students'][0] %>
+      <% @tutor['students'].each do |student| %>
+
       <div class="col-md-3 children children1">
-        <i class="mdi-action-account-circle"></i><span><%= link_to child1['name'], child1['_links']  %></span>
+        <i class="mdi-action-account-circle"></i><span><%= link_to student['name'], student['_links']  %></span>
       </div>
-       <% child2 = @tutor['students'][1] %>
-      <div class="col-md-3 children children2">
-        <i class="mdi-action-account-circle"></i><span><%= link_to child2['name'], child2['_links']  %></span>
-      </div>
-      <% child3 = @tutor['students'][2] %>
-      <div class="col-md-3 children children3">
-        <i class="mdi-action-account-circle"></i><span><%= link_to child3['name'], child3['_links']  %></span>
-      </div>
+      <% end %>
     </div>
 	</div>
 </div>
