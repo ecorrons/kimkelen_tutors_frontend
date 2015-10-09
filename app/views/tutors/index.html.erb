@@ -20,8 +20,8 @@
         <strong><h4><i class="mdi-social-school"></i>Estudiantes a cargo</h4></strong>
       </div>
       <% @tutor['students'].each do |student| %>
-
-      <div class="col-md-3 children children1">
+      <% my_index = @tutor['students'].index(student)+1 %>
+      <div class="<%= "col-md-3 children children#{my_index}" %>">
         <i class="mdi-action-account-circle"></i><span><%= link_to student['name'], student['_links']  %></span>
       </div>
       <% end %>
